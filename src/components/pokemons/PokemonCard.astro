@@ -1,0 +1,18 @@
+---
+interface Props {
+  name: string;
+  url: string;
+}
+
+const { name, url } = Astro.props;
+
+const id = url.split("/").at(-2);
+const urlImg = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
+---
+
+<div
+  class="mx-auto rounded-xl bg-indigo-500 inset-shadow-sm inset-shadow-white"
+>
+  <img src={urlImg} alt={name} />
+  <div class="text-center">{name}</div>
+</div>
