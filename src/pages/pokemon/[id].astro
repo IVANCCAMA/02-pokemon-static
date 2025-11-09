@@ -1,8 +1,8 @@
 ---
 import type { GetStaticPaths } from "astro";
 import Layout from "../../layouts/Layout.astro";
-import PokemonCard from "../../components/pokemons/PokemonCard.astro";
 import type { PokemonListResponse } from "../../interfaces/pokemon-list.response";
+import PokemonCard from "../../components/pokemons/PokemonCard.astro";
 
 export const getStaticPaths = (async () => {
   const resp = await fetch("https://pokeapi.co/api/v2/pokemon?limit=150");
@@ -10,8 +10,9 @@ export const getStaticPaths = (async () => {
   // console.log(results);
 
   const pokemons = results.map(({ name, url }) => {
+    const id = url.split("/").at(-2);
     return {
-      params: { name: name },
+      params: { id: id },
       props: {
         name: name,
         url: url,
@@ -22,10 +23,12 @@ export const getStaticPaths = (async () => {
   return pokemons;
 }) satisfies GetStaticPaths;
 
-const { name } = Astro.params;
+const { id } = Astro.params;
+// console.log(id);
+
+const { name } = Astro.props;
 const { url } = Astro.props;
 
-const id = url.split("/").at(-2);
 const audioSrc = `https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/${id}.ogg`;
 ---
 
