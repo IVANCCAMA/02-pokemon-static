@@ -14,6 +14,7 @@ const {
 // No olvidar estooo :V
 import "../styles/global.css";
 import { siteInfo } from "src/const/site-info";
+import NavBar from "@components/Shared/NavBar.astro";
 ---
 
 <!doctype html>
@@ -37,8 +38,11 @@ import { siteInfo } from "src/const/site-info";
 
     <ClientRouter />
   </head>
-  <body class="bg-slate-800 text-slate-100 mx-auto">
-    <slot />
+  <body class="bg-slate-800 text-slate-100">
+    <NavBar />
+    <main class="mt-10 mx-auto max-w-3xl">
+      <slot />
+    </main>
   </body>
 </html>
 
