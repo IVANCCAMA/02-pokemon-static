@@ -5,6 +5,7 @@ import Layout from "@layouts/Layout.astro";
 import "../styles/global.css";
 import type { PokemonListResponse } from "@interfaces/pokemon-list.response";
 import PokemonCard from "@components/pokemons/PokemonCard.astro";
+import Title from "@components/shared/Title.astro";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -15,8 +16,7 @@ const data = (await resp.json()) as PokemonListResponse;
 ---
 
 <Layout title="Pokémon Static | Home">
-  <h1 class="text-3xl font-bold text-white-800">Listado de Pokémons</h1>
-  <hr />
+  <Title>Listado de Pokemons</Title>
 
   <section
     aria-label="Listado de Pokémos"
