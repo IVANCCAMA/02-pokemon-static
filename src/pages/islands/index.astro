@@ -1,0 +1,23 @@
+---
+import { Counter } from "@components/Counter";
+import Title from "@components/shared/Title.astro";
+import Layout from "@layouts/Layout.astro";
+---
+
+<Layout title="Favoritos">
+  <Title>Islas</Title>
+
+  <div
+    style={{
+      height: "2000px",
+      backgroundColor: "red",
+      opacity: 0.4,
+    }}
+  >
+  </div>
+
+  <!-- Colocar siempre una directiva para indicarle que es una isla -->
+  <!-- <Counter client:load /> -->
+  <!-- <Counter client:only="solid-js" /> -->
+  <Counter client:visible />
+</Layout>

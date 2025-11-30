@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig } from "astro/config";
+import solidJs from "@astrojs/solid-js";
 import tailwindcss from "@tailwindcss/vite";
 
 import icon from "astro-icon";
@@ -10,5 +11,5 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
 
-  integrations: [icon()],
+  integrations: [icon(), solidJs()],
 });
