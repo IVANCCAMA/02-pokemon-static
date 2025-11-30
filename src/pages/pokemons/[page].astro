@@ -24,13 +24,13 @@ const { page } = Astro.props;
 
   <section
     aria-label="Listado de Pokémos"
-    class="grid grid-cols-1 sm:grid-cols-4 md:grid-cols-5 gap-4 p-5"
+    class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-4 px-1 pt-2 md:p-5"
   >
     <!-- En Astro no se usa el key como en React -->
     {page.data.map(({ name, url }) => <PokemonCard name={name} url={url} />)}
   </section>
 
-  <section class="flex px-10 mt-10 gap-2 items-center">
+  <section class="flex mt-10 gap-2 items-center">
     <a
       class:list={[
         "btn",
@@ -52,7 +52,7 @@ const { page } = Astro.props;
 
     <div class="flex flex-1"></div>
 
-    <span class="text-3xl font-bold">Página {page.currentPage}</span>
+    <span class="md:text-3xl font-bold">Página {page.currentPage}</span>
   </section>
 </Layout>
 
